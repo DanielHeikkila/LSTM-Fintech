@@ -65,7 +65,7 @@ df_future = pd.DataFrame(columns=['Date', 'Actual', 'Forecast'])
 df_future['Date'] = pd.date_range(start=df_past['Date'].iloc[-1] + pd.Timedelta(days=1), periods=n_forecast)
 df_future['Forecast'] = Y_.flatten()
 
-results = df_future.set_index('Date')
+results = df_past.set_index('Date') + df_future.set_index('Date')
 #results = df_future.set_index('Date')
 
 # plot the results
